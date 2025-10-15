@@ -40,10 +40,16 @@
           </label>
           <input id="file-upload" type="file" accept="audio/*"/>
           <span id="file-name">No file selected</span>
-          <textarea id="upload-lyrics-input" placeholder="Optional: Paste lyrics for the uploaded song here..."></textarea>
+          <div class="textarea-container">
+            <textarea id="upload-lyrics-input" placeholder="Optional: Paste lyrics for the uploaded song here..."></textarea>
+            <button id="clear-upload-lyrics-button" class="clear-button" aria-label="Clear optional lyrics text">&#10005;</button>
+          </div>
         </div>
         <div id="panel-lyrics" class="input-container" hidden>
-          <textarea id="lyrics-input" placeholder="Paste your lyrics here..."></textarea>
+          <div class="textarea-container">
+            <textarea id="lyrics-input" placeholder="Paste your lyrics here..."></textarea>
+            <button id="clear-lyrics-button" class="clear-button" aria-label="Clear lyrics text">&#10005;</button>
+          </div>
         </div>
 
         <button id="submit-button" disabled>Get Criticism</button>

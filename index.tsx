@@ -28,6 +28,8 @@ const resultContainer = document.getElementById('result-container') as HTMLEleme
 const resultText = document.getElementById('result-text') as HTMLDivElement;
 const modelSelector = document.getElementById('model-selector') as HTMLSelectElement;
 const scoreSummaryContainer = document.getElementById('score-summary-container') as HTMLElement;
+const clearLyricsButton = document.getElementById('clear-lyrics-button') as HTMLButtonElement;
+const clearUploadLyricsButton = document.getElementById('clear-upload-lyrics-button') as HTMLButtonElement;
 
 
 // --- App State ---
@@ -480,8 +482,16 @@ function main() {
   tabLyrics.addEventListener('click', () => handleTabClick('lyrics'));
   fileInput.addEventListener('change', handleFileChange);
   lyricsInput.addEventListener('input', updateSubmitButtonState);
-  uploadLyricsInput.addEventListener('input', updateSubmitButtonState);
   submitButton.addEventListener('click', handleSubmit);
+
+  clearLyricsButton.addEventListener('click', () => {
+    lyricsInput.value = '';
+    updateSubmitButtonState();
+  });
+
+  clearUploadLyricsButton.addEventListener('click', () => {
+    uploadLyricsInput.value = '';
+  });
 
   // Drag and drop event listeners
   uploadArea.addEventListener('dragover', (e) => {
