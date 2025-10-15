@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Gemini Music Critic",
+  "description": "An AI-powered music critic that analyzes uploaded songs or lyrics using the Gemini API.",
+  "requestFramePermissions": []
+}

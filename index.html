@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gemini Music Critic</title>
+    <link rel="stylesheet" href="index.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@^0.7.0",
+          "marked": "https://esm.sh/marked@^15.0.7",
+          "dompurify": "https://esm.sh/dompurify@^3.0.6"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="app-layout">
+      <div class="input-side">
+        <header>
+          <h1>&#127926; Gemini Music Critic</h1>
+          <p>Get an AI-powered critique of your song or lyrics.</p>
+        </header>
+
+        <div class="model-selector-container">
+          <label for="model-selector">Model</label>
+          <select id="model-selector">
+            <option value="gemini-2.5-flash" selected>Gemini 2.5 Flash (Consistent)</option>
+            <option value="gemini-2.5-pro">Gemini 2.5 Pro (Nuanced)</option>
+          </select>
+        </div>
+
+        <div class="tabs">
+          <button id="tab-upload" class="tab-button active" aria-selected="true">Upload Song</button>
+          <button id="tab-lyrics" class="tab-button" aria-selected="false">Enter Lyrics</button>
+        </div>
+
+        <div id="panel-upload" class="input-container">
+          <label for="file-upload" class="custom-file-upload">
+            &#127925; Drag & Drop or Click to Choose Audio File
+          </label>
+          <input id="file-upload" type="file" accept="audio/*"/>
+          <span id="file-name">No file selected</span>
+          <textarea id="upload-lyrics-input" placeholder="Optional: Paste lyrics for the uploaded song here..."></textarea>
+        </div>
+        <div id="panel-lyrics" class="input-container" hidden>
+          <textarea id="lyrics-input" placeholder="Paste your lyrics here..."></textarea>
+        </div>
+
+        <button id="submit-button" disabled>Get Criticism</button>
+
+        <section id="score-summary-container" hidden></section>
+      </div>
+
+      <div class="output-side">
+        <section id="result-container" aria-live="polite">
+          <div id="loader" class="loader" hidden></div>
+          <div id="result-text">Your music critique will appear here.</div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="index.tsx"></script>
+  </body>
+</html>
